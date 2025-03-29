@@ -1,74 +1,159 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
+import React from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
+} from 'react-native';
+import { Link } from 'expo-router';
 import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function HomeScreen() {
+  const handleSignOut = async () => {
+    // TODO: Implement sign out logic
+    // Clear stored token
+    // await AsyncStorage.removeItem('userToken');
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        {/* Header Section */}
+        <View style={styles.header}>
+          <ThemedText style={styles.welcomeText}>Welcome Back!</ThemedText>
+          <Link href="/(auth)/sign-in" asChild>
+            <TouchableOpacity style={styles.signOutButton} onPress={handleSignOut}>
+              <ThemedText style={styles.signOutText}>Sign Out</ThemedText>
+            </TouchableOpacity>
+          </Link>
+        </View>
+
+        {/* Main Content */}
+        <ThemedView style={styles.content}>
+          {/* Quick Actions */}
+          <View style={styles.section}>
+            <ThemedText style={styles.sectionTitle}>Quick Actions</ThemedText>
+            <View style={styles.actionButtons}>
+              <TouchableOpacity style={styles.actionButton}>
+                <ThemedText style={styles.actionButtonText}>Profile</ThemedText>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.actionButton}>
+                <ThemedText style={styles.actionButtonText}>Settings</ThemedText>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          {/* Recent Activity */}
+          <View style={styles.section}>
+            <ThemedText style={styles.sectionTitle}>Recent Activity</ThemedText>
+            <View style={styles.activityCard}>
+              <ThemedText style={styles.activityText}>No recent activity</ThemedText>
+            </View>
+          </View>
+
+          {/* Stats Section */}
+          <View style={styles.section}>
+            <ThemedText style={styles.sectionTitle}>Your Stats</ThemedText>
+            <View style={styles.statsContainer}>
+              <View style={styles.statCard}>
+                <ThemedText style={styles.statNumber}>0</ThemedText>
+                <ThemedText style={styles.statLabel}>Tasks</ThemedText>
+              </View>
+              <View style={styles.statCard}>
+                <ThemedText style={styles.statNumber}>0</ThemedText>
+                <ThemedText style={styles.statLabel}>Goals</ThemedText>
+              </View>
+              <View style={styles.statCard}>
+                <ThemedText style={styles.statNumber}>0</ThemedText>
+                <ThemedText style={styles.statLabel}>Progress</ThemedText>
+              </View>
+            </View>
+          </View>
+        </ThemedView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  header: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: 8,
+    padding: 20,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  welcomeText: {
+    fontSize: 24,
+    fontWeight: 'bold',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  signOutButton: {
+    padding: 10,
+  },
+  signOutText: {
+    color: '#007AFF',
+  },
+  content: {
+    padding: 20,
+  },
+  section: {
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 10,
+  },
+  actionButtons: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  actionButton: {
+    backgroundColor: '#007AFF',
+    padding: 15,
+    borderRadius: 10,
+    flex: 1,
+    alignItems: 'center',
+  },
+  actionButtonText: {
+    color: '#ffffff',
+    fontWeight: '600',
+  },
+  activityCard: {
+    backgroundColor: '#f5f5f5',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  activityText: {
+    color: '#666',
+  },
+  statsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  statCard: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  statNumber: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  statLabel: {
+    color: '#666',
   },
 });

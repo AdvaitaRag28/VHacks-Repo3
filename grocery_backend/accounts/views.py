@@ -5,6 +5,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm, LoginForm
 from django.contrib.auth.decorators import login_required
 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from django.http import JsonResponse
+
 # Registration view
 def register(request):
     if request.method == 'POST':
@@ -47,3 +51,27 @@ def user_has_high_cholesterol(user_id):
         return False  # User does not have high cholesterol
     except CustomUser.DoesNotExist:
         return False  # If the user doesn't exist, return False
+
+@api_view(['POST'])
+def process_health_data(request):
+    try:
+        health_data = request.data
+        has_high_cholesterol = health_data.get('hasHighCholesterol', False)
+        
+        warnings = []
+        if has_high_cholesterol:
+            # Add specific ingredients or food types to avoid
+            warnings.append({
+                'type': 'high_cholesterol',
+                'message': 'Based on your health profile, please be cautious with foods high in saturated fats and cholesterol.'
+            })
+        
+        return JsonResponse({
+            'success': True,
+            'warnings': warnings
+        })
+    except Exception as e:
+        return JsonResponse({
+            'success': False,
+            'error': str(e)
+        }, status=400)
