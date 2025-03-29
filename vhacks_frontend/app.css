@@ -1,0 +1,246 @@
+.headerMain{
+    font-size: 2.5rem;
+    color: #00008B;
+    margin-bottom: 1rem;
+}
+
+.buttonText{
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.paragraph{
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 1rem;
+}
+
+.subheading{
+    font-size: 2rem;
+    color: #90D5FF;
+    margin-bottom: 1rem;
+}
+
+/* UserProfileSetup Styles */
+.profileContainer {
+    flex: 1;
+    background-color: #f5f5f5;
+}
+
+.profileScrollView {
+    flex: 1;
+}
+
+.profileContent {
+    padding: 20;
+}
+
+.profileTitle {
+    font-size: 28;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 24;
+    text-align: center;
+}
+
+.profileSection {
+    background-color: #ffffff;
+    border-radius: 12;
+    padding: 16;
+    margin-bottom: 20;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.profileSectionTitle {
+    font-size: 20;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16;
+}
+
+.profileInputGroup {
+    margin-bottom: 16;
+}
+
+.profileLabel {
+    font-size: 16;
+    color: #666;
+    margin-bottom: 8;
+}
+
+.profileInput {
+    border-width: 1;
+    border-color: #ddd;
+    border-radius: 8;
+    padding: 12;
+    font-size: 16;
+}
+
+.profileConditionRow {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-vertical: 8;
+    border-bottom-width: 1;
+    border-bottom-color: #eee;
+}
+
+.profileConditionText {
+    font-size: 16;
+    color: #333;
+}
+
+.profileMedicationGroup {
+    margin-bottom: 20;
+    padding-bottom: 16;
+    border-bottom-width: 1;
+    border-bottom-color: #eee;
+}
+
+.profileMedicationTitle {
+    font-size: 18;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 12;
+}
+
+.profileAddButton {
+    background-color: #f0f0f0;
+    padding: 12;
+    border-radius: 8;
+    align-items: center;
+    margin-top: 8;
+}
+
+.profileAddButtonText {
+    color: #007AFF;
+    font-size: 16;
+    font-weight: 500;
+}
+
+.profileSubmitButton {
+    background-color: #007AFF;
+    padding: 16;
+    border-radius: 12;
+    align-items: center;
+    margin-top: 20;
+    margin-bottom: 40;
+}
+
+.profileSubmitButtonText {
+    color: #ffffff;
+    font-size: 18;
+    font-weight: 600;
+}
+
+/* HomeScreen Styles */
+.homeContainer {
+    flex: 1;
+    background-color: #f5f5f5;
+}
+
+.homeScrollView {
+    flex: 1;
+}
+
+.homeHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20;
+    background-color: #ffffff;
+    border-bottom-width: 1;
+    border-bottom-color: #e0e0e0;
+}
+
+.homeWelcomeText {
+    font-size: 24;
+    font-weight: bold;
+    color: #333;
+}
+
+.homeSignOutButton {
+    padding: 8;
+}
+
+.homeSignOutText {
+    color: #007AFF;
+    font-size: 16;
+}
+
+.homeContent {
+    padding: 20;
+}
+
+.homeSection {
+    margin-bottom: 24;
+}
+
+.homeSectionTitle {
+    font-size: 18;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12;
+}
+
+.homeActionButtons {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12;
+}
+
+.homeActionButton {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 16;
+    border-radius: 12;
+    align-items: center;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.homeActionButtonText {
+    color: #007AFF;
+    font-size: 16;
+    font-weight: 500;
+}
+
+.homeActivityCard {
+    background-color: #ffffff;
+    padding: 16;
+    border-radius: 12;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.homeActivityText {
+    color: #666;
+    font-size: 16;
+    text-align: center;
+}
+
+.homeStatsContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12;
+}
+
+.homeStatCard {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 16;
+    border-radius: 12;
+    align-items: center;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.homeStatNumber {
+    font-size: 24;
+    font-weight: bold;
+    color: #007AFF;
+    margin-bottom: 4;
+}
+
+.homeStatLabel {
+    font-size: 14;
+    color: #666;
+}
